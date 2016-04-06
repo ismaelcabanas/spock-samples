@@ -33,5 +33,28 @@
 
         }
 
+        def "Convierte el contenido de un fichero a mayúsculas"(){
 
+            given: "Dado un fichero con contenido y un fichero vacío"
+            def pathToEmptyFile = Paths.get("empty.txt")
+            def emptyFile = pathToEmptyFile.toFile()
+            def pathToFile = Paths.get("foo.txt")
+            pathToFile.write("spock\nframework")
+            def file = pathToFile.toFile()
+            upperCaseConverter = new UpperCaseConverter()
+
+            expect: "Debería devolver una lista de cadenas mayúsculas cuando aplicamos el UpperCaseConverter sobre un fichero dado con contenido"
+            def convertedList = upperCaseConverter.toUpperCase(file)
+            convertedList.get(0) == "SPOCK"
+            convertedList.get(1) == "FRAMEWORK"
+
+            and: "Debería devolver una lista vacía cuando aplicamos el UpperCaseConverter sobre un fichero vacío"
+            def emptyConvertedList = upperCaseConverter.toUpperCase(emptyFile)
+            emptyConvertedList.size() == 0
+
+            cleanup:
+            emptyFile.delete()
+            file.delete()
+
+        }
     }
