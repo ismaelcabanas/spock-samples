@@ -2,6 +2,7 @@
 Esta es una aplicación de ejemplo para mis primeras incursiones con el framework de Spock.
 
 * [Primeros pasos con Spock (I)](https://pajarokillo.wordpress.com/2016/04/06/primeros-pasos-con-spock-i/)
+* [Primeros pasos con Spock (II)](https://pajarokillo.wordpress.com/2016/04/08/primeros-pasos-con-spock-ii/)
 
 Requisitos previos
 ==================
