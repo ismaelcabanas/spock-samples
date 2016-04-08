@@ -14,6 +14,19 @@ class VariablesSampleSpec extends Specification{
     @Shared
     def obj2 = new Object()
 
+    def setupSpec(){
+        println("Setup de la especificación")
+    }
+    def setup(){
+        println("Setup de la feature")
+    }
+    def cleanup(){
+        println("Cleanup de la feature")
+    }
+    def cleanupSpec(){
+        print("Cleanup de la especificación")
+    }
+
     def "first feature method"(){
 
         println("Primer método de la feature")
