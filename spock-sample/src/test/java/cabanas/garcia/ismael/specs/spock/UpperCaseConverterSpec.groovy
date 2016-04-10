@@ -72,4 +72,19 @@
             thrown(UpperCaseConverterException) // se pueden eliminar los paréntesis
 
         }
+
+        def "No debería lanzar una UpperCaseConverterException al convertir una cadena no numérica" (){
+
+            given: "Dado una cadena no numérica"
+            def string = "abc"
+            upperCaseConverter = new UpperCaseConverter()
+
+            when: "Cuando se convierte a mayúsculas"
+            def result = upperCaseConverter.toUpperCase(string)
+
+            then: "Entonces debería lanzar una excepción de tipo UpperCaseConverterException"
+            notThrown(UpperCaseConverterException) // se pueden eliminar los paréntesis
+            result == "ABC"
+
+        }
     }
