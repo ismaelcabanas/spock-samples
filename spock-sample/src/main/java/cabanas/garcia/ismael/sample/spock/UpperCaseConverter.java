@@ -16,6 +16,12 @@ public class UpperCaseConverter {
         return upperCaseList;
     }
 
+    public String toUpperCase(String string) throws UpperCaseConverterException {
+        if(isNumeric(string))
+            throw new UpperCaseConverterException();
+        return string.toUpperCase();
+    }
+
     public List<String> toUpperCase(File file) {
         List<String> upperCaseList = new ArrayList<>();
 
@@ -34,5 +40,16 @@ public class UpperCaseConverter {
         }
 
         return upperCaseList;
+    }
+
+    private boolean isNumeric(String string) {
+        boolean result = true;
+        try{
+            Integer.parseInt(string);
+        }
+        catch (NumberFormatException e){
+            result = false;
+        }
+        return result;
     }
 }
