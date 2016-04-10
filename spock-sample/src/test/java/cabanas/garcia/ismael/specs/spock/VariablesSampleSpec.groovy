@@ -7,7 +7,7 @@ import spock.lang.Specification
  * Created by Ismael on 08/04/2016.
  */
 class VariablesSampleSpec extends Specification{
-    def message = "Hola mundo!"
+    static final message = "Hola mundo!"
 
     def obj1 = new Object()
 
@@ -34,10 +34,10 @@ class VariablesSampleSpec extends Specification{
         println("Objeto obj2: " + obj2.toString())
 
         when: "Mensaje se transforma en minúsculas"
-        message = message.toLowerCase()
+        def result = message.toLowerCase()
 
         then: "El mensaje se debería haber transformado en minúsculas"
-        message == "hola mundo!"
+        result == "hola mundo!"
 
     }
 
@@ -48,10 +48,10 @@ class VariablesSampleSpec extends Specification{
         println("Objeto obj2: " + obj2.toString())
 
         when: "Mensaje se transforma en mayúsculas"
-        message = message.toUpperCase()
+        def result = message.toUpperCase()
 
         then: "El mensaje se debería haber transformado en mayúsculas"
-        message == "HOLA MUNDO!"
+        result == "HOLA MUNDO!"
 
     }
 
